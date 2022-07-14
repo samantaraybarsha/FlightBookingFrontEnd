@@ -1,0 +1,55 @@
+<div class="d-flex justify-content-center">  
+    <div class="card m-3">      
+        <h5 class="card-header">Manage Schedule</h5>   
+        <div class="card-body">    
+        <form [formGroup]="manageScheduleForm" (ngSubmit)="onSubmit()"> 
+            <div class="form-row">        
+                <div class="form-group col-6">                            
+                <label>AirLine Name</label> 
+                <select formControlName="airlineId" class="form-control" [ngClass]="{'is-invalid':submitted && f.airlineId.errors}">
+                    <option value="">Please select</option>
+                    <option *ngFor="let airline of airlineModelList" value="{{airline.airlineId}}">
+                       {{airline.airlineName}}
+                    </option>
+                    
+                        </select>
+                         <div *ngIf="submitted && f.airlineId.errors" class="invalid-feedback"> 
+                 <div *ngIf="f.airlineId.errors.required">Airline Name is required</div> 
+                  </div>                       
+                 </div> 
+                 <div class="form-group col-6">                            
+                    <label>Flight Number</label> 
+                    <select formControlName="flightId" class="form-control" [ngClass]="{'is-invalid':submitted && f.flightId.errors}">
+                        <option value="">Please select</option>
+                        <option *ngFor="let flight of flightModelList" value="{{flight.flightId}}">
+                           {{flight.flightNumber}}
+                        </option>
+                        
+                            </select>
+                             <div *ngIf="submitted && f.flightId.errors" class="invalid-feedback"> 
+                     <div *ngIf="f.flightId.errors.required">Flight Number is required</div> 
+                      </div>                       
+                     </div>
+                 </div>  
+        <div class="form-row">        
+        <div class="form-group col-6">                            
+        <label>Schedule Date</label> 
+        <input type="date" formControlName="scheduleDate" class="form-control" [ngClass]="{'is-invalid':submitted && f.scheduleDate.errors} " /> 
+         <div *ngIf="submitted && f.scheduleDate.errors" class="invalid-feedback"> 
+         <div *ngIf="f.scheduleDate.errors.required">Schedule Date is required</div> 
+          </div>                       
+         </div>  
+        </div>
+         
+        <div class="form-row">        
+            <div class="form-group col-6">                      
+ <button class="btn btn-primary mr-1" >Add Schedule</button>                      
+ <button class="btn btn-secondary" type="reset" (click)="onReset()">Clear</button> 
+            </div>
+            </div>
+              
+ </form>           
+ </div>        
+</div> 
+</div>
+

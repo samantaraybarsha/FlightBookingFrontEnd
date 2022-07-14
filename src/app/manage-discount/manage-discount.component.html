@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-center">  
+    <div class="card m-3">      
+        <h5 class="card-header">Add Discount</h5>   
+        <div class="card-body">    
+        <form [formGroup]="addDiscountForm" (ngSubmit)="onSubmit()">   
+        <div class="form-row">        
+        <div class="form-group col-6">                            
+        <label>Discount Type</label> 
+        <input type="text" formControlName="discountType" class="form-control" [ngClass]="{'is-invalid':submitted && f.discountType.errors} " /> 
+         <div *ngIf="submitted && f.discountType.errors" class="invalid-feedback"> 
+         <div *ngIf="f.discountType.errors.required">Discount Type is required</div> 
+          </div>                       
+         </div>  
+         
+   
+
+        <div class="form-group col-6">                            
+            <label>Discount Amount</label>                            
+            <input type="number" formControlName="discountAmount" class="form-control" [ngClass]="{'is-invalid':submitted && f.discountAmount.errors} "  />  
+            <div *ngIf="submitted && f.discountAmount.errors" class="invalid-feedback">                                
+            <div *ngIf="f.discountAmount.errors.required">Discount Amount is required</div>                           
+         </div>                        
+        </div>       
+ <button  class="btn btn-primary mr-1" >Add Discount</button>                        
+ <button class="btn btn-secondary" type="reset" (click)="onReset()">Clear</button> 
+ </div>               
+ </form>           
+ </div>        
+</div> 
+</div>
+

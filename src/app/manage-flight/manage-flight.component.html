@@ -1,0 +1,134 @@
+<div class="d-flex justify-content-center">  
+    <div class="card m-3">      
+        <h5 class="card-header">Add Flight</h5>   
+        <div class="card-body">    
+        <form [formGroup]="addFlightForm" (ngSubmit)="onSubmit()">   
+        <div class="form-row">        
+        <div class="form-group col-6">                            
+        <label>Flight Number</label> 
+        <input type="text" formControlName="flightNumber" class="form-control" [ngClass]="{'is-invalid':submitted && f.flightNumber.errors} " /> 
+         <div *ngIf="submitted && f.flightNumber.errors" class="invalid-feedback"> 
+         <div *ngIf="f.flightNumber.errors.required">Flight Number is required</div> 
+          </div>                       
+         </div>  
+         
+         <div class="form-group col-6">                            
+            <label>Select AirLine</label> 
+         <select formControlName="airlineId" class="form-control" [ngClass]="{'is-invalid':submitted && f.airlineId.errors}">
+            <option value="">Please select</option>
+            <option *ngFor="let airline of airlineModelList" value="{{airline.airlineId}}">
+               {{airline.airlineName}}
+            </option>
+            
+                </select>
+                <div *ngIf="submitted && f.airlineId.errors" class="invalid-feedback"> 
+                    <div *ngIf="f.airlineId.errors.required">Airline is required</div> 
+                     </div>                       
+                    </div> 
+                    </div>
+                    <div class="form-row"> 
+<div class="form-group col-6">                            
+    <label>Select From Place</label> 
+    <input type="text" formControlName="fromPlace" class="form-control" [ngClass]="{'is-invalid':submitted && f.fromPlace.errors}">
+ 
+        <div *ngIf="submitted && f.fromPlace.errors" class="invalid-feedback"> 
+            <div *ngIf="f.fromPlace.errors.required">From Place is required</div> 
+             </div>                       
+</div> 
+
+<div class="form-group col-6">                            
+    <label>Select To Place</label> 
+    <input type="text" formControlName="toPlace" class="form-control" [ngClass]="{'is-invalid':submitted && f.toPlace.errors}">
+ 
+        <div *ngIf="submitted && f.toPlace.errors" class="invalid-feedback"> 
+            <div *ngIf="f.toPlace.errors.required">To Place is required</div> 
+             </div>                       
+</div> 
+</div>
+<div class="form-row"> 
+         
+         <div class="form-group col-6">                            
+         <label>Departure Time</label>                            
+         <input type="text" formControlName="departureTime" class="form-control" [ngClass]="{'is-invalid':submitted && f.departureTime.errors} "  />                            
+         <div *ngIf="submitted && f.departureTime.errors" class="invalid-feedback">                                
+        <div *ngIf="f.departureTime.errors.required">Departure Time is required</div>                           
+         </div>                        
+        </div> 
+                           
+        <div class="form-group col-6">                            
+            <label>Arrival Time</label>                            
+            <input type="text" formControlName="arrivalTime" class="form-control" [ngClass]="{'is-invalid':submitted && f.arrivalTime.errors} "  />  
+            <div *ngIf="submitted && f.arrivalTime.errors" class="invalid-feedback">                                
+            <div *ngIf="f.arrivalTime.errors.required">Arrival Time is required</div>                           
+         </div>                        
+        </div> 
+    </div>
+    <div class="form-row"> 
+        <div class="form-group col-6">                            
+            <label>Instrument used</label>                            
+            <input type="text" formControlName="instrumentUser" class="form-control" [ngClass]="{'is-invalid':submitted && f.instrumentUser.errors} "  />  
+            <div *ngIf="submitted && f.instrumentUser.errors" class="invalid-feedback">                                
+            <div *ngIf="f.instrumentUser.errors.required">Instrument Used is required</div>                           
+         </div>                        
+        </div> 
+    
+        <div class="form-group col-6">                            
+            <label>No of Business Class seats</label>                            
+            <input type="number" formControlName="businessSeats" class="form-control" [ngClass]="{'is-invalid':submitted && f.businessSeats.errors} "  />  
+            <div *ngIf="submitted && f.businessSeats.errors" class="invalid-feedback">                                
+            <div *ngIf="f.businessSeats.errors.required">No of Business Class seats is required</div>                           
+         </div>                        
+        </div> 
+    </div>
+    <div class="form-row"> 
+        <div class="form-group col-6">                            
+            <label>Non Business Class seats</label>                            
+            <input type="number" formControlName="nonBusinessSeats" class="form-control" [ngClass]="{'is-invalid':submitted && f.nonBusinessSeats.errors} "  />  
+            <div *ngIf="submitted && f.nonBusinessSeats.errors" class="invalid-feedback">                                
+            <div *ngIf="f.nonBusinessSeats.errors.required">No of Non Business Class seats is required</div>                           
+         </div>                        
+        </div> 
+    
+        <div class="form-group col-6">                            
+            <label>Cost</label>                            
+            <input type="number" formControlName="cost" class="form-control" [ngClass]="{'is-invalid':submitted && f.cost.errors} "  />  
+            <div *ngIf="submitted && f.cost.errors" class="invalid-feedback">                                
+            <div *ngIf="f.cost.errors.required">Cost is required</div>                           
+         </div>                        
+        </div> 
+    </div>
+    <div class="form-row"> 
+        <div class="form-group col-6">                            
+            <label>No of Rows</label>                            
+            <input type="text" formControlName="noOfRows" class="form-control" [ngClass]="{'is-invalid':submitted && f.noOfRows.errors} "  />  
+            <div *ngIf="submitted && f.noOfRows.errors" class="invalid-feedback">                                
+            <div *ngIf="f.noOfRows.errors.required">No Of Rows is required</div>                           
+         </div>                        
+        </div> 
+        <div class="form-group col-6">
+           
+        <button type="submit" class="btn btn-primary mr-1" >Add Flight</button>                        
+        <button class="btn btn-secondary" type="reset" (click)="onReset()">Clear</button> 
+        </div>
+        <!-- <div class="form-group col-6">                            
+            <label>Select Discount</label> 
+         <select formControlName="discount" class="form-control" [ngClass]="{'is-invalid':submitted && f.title.errors}">
+            <option value="">Please select</option>
+            <option *ngFor="let discount of discountModelList" value=" {{discount.discountId}}">
+                {{discount.discountType}}
+             </option>
+                </select>
+                <div *ngIf="submitted && f.discount.errors" class="invalid-feedback"> 
+                    <div *ngIf="f.discount.errors.required">Discount is required</div> 
+                     </div>                       
+        </div>   -->
+    </div>
+    <!-- <div class="form-row">                     
+ <button type="submit" class="btn btn-primary mr-1" >Add Flight</button>                        
+ <button class="btn btn-secondary" type="reset" (click)="onReset()">Clear</button> 
+ </div>                -->
+ </form>           
+ </div>        
+</div> 
+</div>
+

@@ -1,0 +1,9 @@
+
+body{
+  height: 1000px;
+  width: 100%;
+  place-items: center;
+  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+ }
+ .divColour { background-color:white; padding: 20px; } 
+ .linkdesign{ margin: 20px;}

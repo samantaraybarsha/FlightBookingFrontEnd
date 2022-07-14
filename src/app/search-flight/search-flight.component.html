@@ -1,0 +1,128 @@
+<div class="d-flex justify-content-center">  
+    <div class="card m-3">      
+        <h5 class="card-header">Search Flight</h5>   
+        <div class="card-body">    
+        <form [formGroup]="searchFlightForm" (ngSubmit)="onSubmit(f.value)">   
+       
+<div class="form-row"> 
+<div class="form-group col-6">                            
+    <label>From</label>                            
+    <input type="text" formControlName="fromPlace" class="form-control" [ngClass]="{'is-invalid':submitted && f.fromPlace.errors} "  />                            
+    <div *ngIf="submitted && f.fromPlace.errors" class="invalid-feedback">                                
+   <div *ngIf="f.fromPlace.errors.required">From Place is required</div>                           
+    </div>                       
+</div> 
+         
+         <div class="form-group col-6">                            
+         <label>To</label>                            
+         <input type="text" formControlName="toPlace" class="form-control" [ngClass]="{'is-invalid':submitted && f.toPlace.errors} "  />                            
+         <div *ngIf="submitted && f.toPlace.errors" class="invalid-feedback">                                
+        <div *ngIf="f.toPlace.errors.required">To Place is required</div>                           
+         </div>                        
+        </div> 
+    </div>
+    <div class="form-row"> 
+        <div class="form-group col-6">                            
+            <label>Departure Date</label>                            
+            <input type="date" formControlName="departureDate" class="form-control" [ngClass]="{'is-invalid':submitted && f.departureDate.errors} "  />                            
+            <div *ngIf="submitted && f.departureDate.errors" class="invalid-feedback">                                
+           <div *ngIf="f.departureDate.errors.required">Departure Date required</div>                           
+            </div>                       
+        </div> 
+                 
+                 <div class="form-group col-6">                            
+                 <label>Return Date</label>                            
+                 <input type="date" formControlName="returnDate" class="form-control" [ngClass]="{'is-invalid':submitted && f.returnDate.errors} "  />                            
+                 <div *ngIf="submitted && f.returnDate.errors" class="invalid-feedback">                                
+                <div *ngIf="f.returnDate.errors.required">Return Date is required</div>                           
+                 </div>                        
+                </div> 
+            </div>
+    <div class="form-row" >
+        <div class="form-group col-12" [ngClass]="{'is-invalid':submitted && f.tripType.errors}">                            
+           <input  type="radio"  id="oneway" value="oneway" name="tripType" formControlName="tripType" > &nbsp;
+ <label for="oneway">OneWay</label> &nbsp; &nbsp; &nbsp;
+           <input type="radio" id="roundTrip"  value="roundTrip" name="tripType" formControlName="tripType" >  &nbsp;
+           <label for="roundTrip"> Round Trip</label>  
+           <div *ngIf="submitted && f.tripType.errors" class="invalid-feedback"> 
+                    <div *ngIf="f.tripType.errors.required">Select Trip Type</div> 
+                     </div>                       
+        </div> 
+    </div>
+    <div class="form-row">  
+        <div class="form-group col-6">                     
+ <button type="submit" class="btn btn-primary mr-1" >Search</button> 
+ </div>
+ </div> 
+    <div class="form-row" >
+        <div class="form-group col-12">                            
+          <table border="1px;solid">
+              <thead>
+                <td>
+                    Airline Name
+                </td>
+                <td>
+                    Flight Number
+                </td>
+                <td>
+                    From Place
+                </td>
+                <td>
+                   To Place
+                </td>
+                <td>
+                  Departure Time
+              </td>
+              <td>
+                 Arrival Time
+              </td>
+              <td>
+                  Cost
+               </td>
+               <td>
+               Book Flight
+             </td>
+              </thead>
+              <tbody *ngFor="let data of flightsearchModelList">
+                <td>
+                    {{data.airLineName}}
+                </td>
+                <td>
+                    {{data.flightNumber}}
+                </td>
+                <td>
+                    {{data.toPlace}}
+                </td>
+                <td>
+                    {{data.fromPlace}}
+                </td>
+                
+                <td>
+                 {{data.departureTime}}
+              </td>
+              <td>
+                {{data.arrivalTime}}
+              </td>
+              <td>
+                 {{data.totalCost}}
+               </td>
+               <td>
+                <!-- <button (click)="bookFlight(flight)"  class="btn btn-secondary">Book Flight -->
+
+                    <a class="linkdesign" role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+                    routerLink="bookFlight">
+                    <b>
+                    Book Flight</b></a>
+
+                <!-- </button> -->
+              </td>
+              </tbody>
+          </table>                 
+        </div> 
+    </div>
+                 
+ </form>           
+ </div>        
+</div> 
+</div>
+

@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">  
+    <div class="card m-3">      
+        <h5 class="card-header">Booked Ticket History</h5>   
+        <div class="card-body">    
+        <form [formGroup]="ticketSearchForm"  >   
+        <div class="form-row">        
+        <div class="form-group col-6">                            
+        <label>PNR</label> 
+        <input type="text" formControlName="pnr" class="form-control" [ngClass]="{'is-invalid':submitted && f.pnr.errors} " /> 
+         <div *ngIf="submitted && f.pnr.errors" class="invalid-feedback">  
+          </div>                       
+         </div>  
+         
+         <div class="form-group col-6">                            
+            <label>Email Id</label> 
+            <input type="text" formControlName="email" class="form-control" [ngClass]="{'is-invalid':submitted && f.email.errors} " /> 
+             <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              </div>                       
+             </div>  
+        </div>
+        
+    <div class="form-row">
+        <div class="form-group col-6">
+                          
+ <button class="btn btn-secondary" (click)="pnrSearch()">Search by PNR</button>   
+</div>
+ <div class="form-group col-6">                     
+ <button class="btn btn-secondary" (click)="emailSearch()">Search by Email</button> 
+</div>
+ </div>               
+ </form>  
+ 
+ <table border="1px;solid">
+<thead>
+    <td>
+        Flight Number
+    </td>
+    <td>
+        Pnr
+    </td>
+    <td>
+        View Passenger Details
+    </td>
+    <td>
+       Cancel Ticket
+    </td>
+</thead>
+<tbody *ngIf="ticketModel!=undefined">
+    <td>
+        
+     {{ticketModel.flightNumber}}
+    </td>
+    <td>
+       {{ticketModel.pnr}}
+    </td>
+    <td>
+        <button class="btn-secondary" (click)="viewPassengerDetails(ticketModel.ticketId)">View Passengers</button>
+    </td>
+    <td>
+        <button class="btn-secondary" (click)="cancelTicket(ticketModel.pnr)">Cancel Ticket</button>
+    </td>
+</tbody>
+<tbody *ngFor="let data of ticketModelList">
+    <td>
+        {{data.flightNumber}}
+       </td>
+       <td>
+          {{data.pnr}}
+       </td>
+       <td>
+        <button class="btn-secondary" (click)="viewPassengerDetails(data.ticketId)">View Passengers</button>
+    </td>
+       <td>
+        <button class="btn-secondary" (click)="cancelTicket(data.pnr)">Cancel Ticket</button>
+       </td>
+</tbody>
+ </table>
+
+ </div>        
+</div> 
+</div>
+

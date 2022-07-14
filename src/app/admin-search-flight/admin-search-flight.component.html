@@ -1,0 +1,51 @@
+<body>
+    <!-- <form>  -->
+<b>Flight Details</b>
+<table border="1px;solid" style="margin: 20px;">
+<thead>
+<td>
+    AirLine Name
+</td>
+<td>
+    Flight Number
+</td>
+<td>
+    From Place
+</td>
+<td>
+    To Place
+</td>
+<td>
+    Scheduled date
+</td>
+<td>
+    Action
+</td>
+</thead>
+<tbody *ngFor="let flight of FlightSearchDetailsList">
+    <td>
+{{flight.airLineName}}
+    </td>
+<td>
+    {{flight.flightNumber}}
+</td>
+
+<td >
+   {{ flight.fromPlace}}
+</td>
+<td>
+   {{ flight.toPlace}}
+</td>
+<td>
+    {{ flight.scheduledDate}}
+ </td>
+ <td>
+<button (click)="blockFlight(flight)"  class="btn btn-secondary">Block Flight</button>
+ </td>
+
+</tbody>
+
+</table>
+<!-- </form> -->
+</body>
+
