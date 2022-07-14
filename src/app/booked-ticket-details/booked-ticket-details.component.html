@@ -75,12 +75,34 @@
        </td>
 </tbody>
  </table>
- <table >
+ <table *ngFor="let data of passengerDetails" >
      <thead>
-
+<td>
+Passenger Name
+</td>
+<td>
+    Age
+</td>
+<td>
+    Seat Number
+</td>
+<td>
+    Meal
+</td>
      </thead>
      <tbody>
-
+<td>
+{{data.name}}
+</td>
+<td>
+    {{data.age}}
+    </td>
+    <td>
+        {{data.seatNumber}}
+        </td>
+        <td>
+            {{data.meal}}
+            </td>
      </tbody>
  </table>
 
