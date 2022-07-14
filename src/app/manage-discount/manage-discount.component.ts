@@ -39,6 +39,8 @@ export class ManageDiscountComponent implements OnInit {
           alert(data);
         
       })
+      this.submitted=false;
+    this.addDiscountForm.reset();
     }
   onReset()
   {

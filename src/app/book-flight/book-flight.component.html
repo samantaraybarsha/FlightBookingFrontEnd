@@ -1,1 +1,38 @@
-Add Passenger Details
+<div class="container">  
+    
+    <h1>Add Passengers</h1>  
+      
+    <form [formGroup]="passengerForm" (ngSubmit)="onSubmit()">  
+        
+      <!-- <p>  
+        <label for="name">Passenger Name:</label>  
+        <input type="text" id="name" name="name" formControlName="name" class="form-control">  
+      </p>   -->
+      
+      <table class="table table-bordered" formArrayName="passengers">  
+        <tr>  
+          <th colspan="2">Add Multiple Passenger:</th>  
+          <th width="150px"><button type="button" (click)="addPassenger()" class="btn btn-primary">Add Passenger</button></th>  
+        </tr>  
+        <tr *ngFor="let quantity of passengers().controls; let i=index" [formGroupName]="i">  
+          <td>  
+              Passenger Name:  
+              <input type="text" formControlName="name" class="form-control">  
+          </td>  
+          <td>  
+              Age:  
+              <input type="text" formControlName="age" class="form-control">  
+          </td>  
+          <td>  
+              <button (click)="removePassenger(i)" class="btn btn-danger">Remove</button>  
+          </td>  
+        </tr>  
+      </table>  
+       
+      <button type="submit" class="btn btn-success">Submit</button>  
+        
+    </form>  
+        
+    <br/>  
+    <!-- {{this.passengerForm.value | json}}   -->
+  </div>  

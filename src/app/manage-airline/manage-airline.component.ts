@@ -41,6 +41,8 @@ airlineModel:AirLineModel | undefined;
     this._service.addAirline(this.airlineModel).subscribe(data => {
       alert(data);
     })
+    this.submitted=false;
+    this.addAirlineForm.reset();
   }
 onReset()
 {

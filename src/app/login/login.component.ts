@@ -70,10 +70,11 @@ export class LoginComponent implements OnInit {
           //alert(data);
         //}
         //console.log(data);
-       }//,
-      // error=>console.log(error)
+       }
+       
       )
-      
+      this.submitted=false;
+    this.loginUserForm.reset();
       //)
       //this.router.navigate(['/adminModule']);
       //alert('SUCCESS)\n\n' + JSON.stringify(this.addAirlineForm.value,null,4));

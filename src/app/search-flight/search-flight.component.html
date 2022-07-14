@@ -109,7 +109,7 @@
                <td>
                 <!-- <button (click)="bookFlight(flight)"  class="btn btn-secondary">Book Flight -->
 
-                    <a class="linkdesign" role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+                    <a class="linkdesign" (click)="bookFlight(data)" role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
                     routerLink="bookFlight">
                     <b>
                     Book Flight</b></a>

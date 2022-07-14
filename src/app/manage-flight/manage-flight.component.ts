@@ -74,6 +74,8 @@ this.airlineModelList=data;
       this._service.addFlight(this.flightModel).subscribe(data => {
         alert(data);
       })
+      this.submitted=false;
+      this.addFlightForm.reset();
     }
   onReset()
   {

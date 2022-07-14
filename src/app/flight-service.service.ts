@@ -10,6 +10,7 @@ import { FlightModel } from './Models/flight-model';
 import { FlightSearchModel } from './Models/flight-search-model';
 import { FlightSearchDetails } from './Models/flight-search-details';
 import { BookTicketModel } from './Models/book-ticket-model';
+import { PassengerModel } from './Models/passenger-model';
 
 @Injectable({
   providedIn: 'root'
@@ -170,6 +171,19 @@ cancelTicket(pnr:string): Observable<string> {
     }
       )
   return this.httpClient.get<string>(this.baseUrl,{headers:httpOptions});
+    
+}
+bookFlight(passengers:PassengerModel[]): Observable<string> {
+  let flightId=localStorage.getItem('flightId')==null?0:Number(localStorage.getItem('flightId'));
+  this.baseUrl="http://localhost:61014/api/FlightBooking/BookFlight?flightId="+flightId;
+  const httpOptions=new HttpHeaders(
+    {
+    "Content-Type":"application/json",
+    "Authorization": 'Bearer ' +localStorage.getItem('Token')
+   
+    }
+      )
+  return this.httpClient.post<string>(this.baseUrl,passengers,{headers:httpOptions});
     
 }
 

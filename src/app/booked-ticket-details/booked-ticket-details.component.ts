@@ -14,7 +14,7 @@ export class BookedTicketDetailsComponent implements OnInit {
 submitted:boolean=false;
 ticketModel:BookTicketModel|undefined;
 ticketModelList:BookTicketModel[]|undefined;
-passengerDetails:PassengerModel[]|undefined;
+passengerDetails:PassengerModel[]=[];
   constructor(private formBuilder: FormBuilder, private _service: FlightServiceService) { }
 
   ngOnInit(): void {
@@ -33,7 +33,7 @@ this.submitted=true;
     this._service.searchByPnr(bookedTicket.pnr).subscribe(data => {
       this.ticketModel=data;
     })
-
+    this.passengerDetails=[];
   }
   emailSearch()
   {
@@ -58,14 +58,14 @@ viewPassengerDetails(ticketId:number)
 
 if(this.ticketModel!=null && this.ticketModel.ticketId==ticketId)
 {
-this.passengerDetails=this.ticketModel.passenger;
+this.passengerDetails=this.ticketModel.passengers;
 }
 else if(this.ticketModelList!=null)
 {
 for(let i=0;i<this.ticketModelList.length;i++)
 if(this.ticketModelList[i].ticketId==ticketId)
 {
-  this.passengerDetails=this.ticketModelList[i].passenger;
+  this.passengerDetails=this.ticketModelList[i].passengers;
 }
 }
 }

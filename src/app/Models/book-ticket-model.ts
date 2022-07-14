@@ -1,6 +1,6 @@
 import { PassengerModel } from "./passenger-model";
 export interface BookTicketModel {
-    passenger:PassengerModel[],
+    passengers:PassengerModel[],
     ticketId: number,
     userId: number,
     flightId: number,

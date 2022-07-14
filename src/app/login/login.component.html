@@ -16,7 +16,7 @@
             <label>Password</label> 
             <input type="text" formControlName="password" accept="image/*" class="form-control" [ngClass]="{'is-invalid':submitted && f.password.errors} " /> 
              <div *ngIf="submitted && f.password.errors" class="invalid-feedback"> 
-             <div *ngIf="f.logo.password.required">Password is required</div> 
+             <div *ngIf="f.password.errors.required">Password is required</div> 
               </div>                       
              </div>  
          

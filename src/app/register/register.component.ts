@@ -40,11 +40,10 @@ get f(){return this.registerUserForm.controls;}
       "role": registerInputs.email
     }
     this._service.adduser(this.registerModel).subscribe(data => {
-      //if(data != null || data != undefined){
         alert(data);
-      //}
-      console.log(data);
     })
+    this.submitted=false;
+    this.registerUserForm.reset();
     //alert('SUCCESS)\n\n' + JSON.stringify(this.addAirlineForm.value,null,4));
   }
 onReset()

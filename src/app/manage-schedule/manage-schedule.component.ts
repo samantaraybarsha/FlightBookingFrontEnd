@@ -53,6 +53,8 @@ get f(){return this.manageScheduleForm.controls;}
        alert(data);
      
     })
+    this.submitted=false;
+    this.manageScheduleForm.reset();
   }
 onReset()
 {

@@ -55,12 +55,14 @@ export class SearchFlightComponent implements OnInit {
     this.submitted=false;
     this.searchFlightForm.reset();
   }
-//   bookFlight(value:FlightSearchDetails)
-// {
-
-
-  // this._service.blockFlight(value.flightId).subscribe(data => {
-  //   alert(data);
-  // })
-//}
+  bookFlight(value:FlightSearchDetails)
+{
+  //localStorage.setItem('airLineName',value.airLineName);
+  localStorage.setItem('flightId',value.flightId.toString());
+  // localStorage.setItem('toPlace',value.toPlace);
+  // localStorage.setItem('fromPlace',value.fromPlace);
+  // localStorage.setItem('departureTime',value.departureTime);
+  // localStorage.setItem('arrivalTime',value.arrivalTime);
+  // localStorage.setItem('totalCost',value.totalCost.toString());
+}
   }

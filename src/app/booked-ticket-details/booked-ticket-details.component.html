@@ -74,8 +74,12 @@
         <button class="btn-secondary" (click)="cancelTicket(data.pnr)">Cancel Ticket</button>
        </td>
 </tbody>
- </table>
- <table *ngFor="let data of passengerDetails" >
+</table>
+<br/>
+<b>Passenger Details</b>
+<br/>
+<br/>
+ <table border="1px;solid">
      <thead>
 <td>
 Passenger Name
@@ -90,7 +94,7 @@ Passenger Name
     Meal
 </td>
      </thead>
-     <tbody>
+     <tbody *ngFor="let data of passengerDetails">
 <td>
 {{data.name}}
 </td>

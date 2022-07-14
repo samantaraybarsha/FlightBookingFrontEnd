@@ -4,7 +4,7 @@ export interface PassengerModel {
     name: string,
     age: number,
     email: string,
-    seatNumber: number,
+    seatNumber: string,
     meal: string
     
 }
